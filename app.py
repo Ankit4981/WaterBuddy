@@ -1,4 +1,3 @@
-# Paste this entire code into app.py (overwrite existing)
 import tkinter as tk
 from tkinter import ttk, messagebox, simpledialog, filedialog
 import turtle
