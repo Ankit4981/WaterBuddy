@@ -360,7 +360,7 @@ class GoalScreen(tk.Frame):
         tk.Label(self, text="Your Daily Goal", font=("Helvetica", 18, "bold"), bg="white").pack(pady=12)
         tk.Label(self, text="You can tap value and setup your own manual daily goal", bg="white").pack(pady=6)
         self.var = tk.IntVar(value=self.controller.state.get("goal", 2000))
-        tk.Label(self, textvariable=seslf.var, font=("Helvetica", 28, "bold"), bg="white").pack(pady=8)
+        tk.Label(self, textvariable=self.var, font=("Helvetica", 28, "bold"), bg="white").pack(pady=8)
         bf = tk.Frame(self, bg="white"); bf.pack(pady=6)
         tk.Button(bf, text="-100", command=lambda: self.change(-100)).pack(side="left", padx=6)
         tk.Button(bf, text="+100", command=lambda: self.change(100)).pack(side="left", padx=6)
