@@ -1,2 +1,1 @@
-pip install Pillow
-Pillow
+streamlit>=1.28.0
