@@ -1,48 +1,69 @@
-# 💧 WaterBuddy – Hydration Tracker (FA-2 Project)
-
-WaterBuddy is a Python + Streamlit web-app designed to help users track
-their daily water intake. Built as part of FA-2 for Python Programming.
-
----
-
-## 🌟 Features
-
-### Core Features
-✔ Age-based automatic daily water goal  
-✔ User-adjustable goal  
-✔ +250 ml quick logging  
-✔ Manual water logging  
-✔ Live progress bar with percentage  
-✔ Motivational mascot reactions  
-✔ Daily logs (session-based)  
-✔ End-of-day summary  
+# 💧 WaterBuddy – Desktop Hydration Tracker  
+A Python + Tkinter desktop application designed for FA-2 (Python Programming).  
+WaterBuddy helps users track their daily water intake with a premium UI, animated mascot, custom avatars, charts, and auto-saving progress.
 
 ---
 
-## 🎨 Creative Features (FA-2 Bonus)
+## 🚀 Features
 
-✔ Unit converter (cups ↔ ml)  
-✔ Standard target vs user goal comparison  
-✔ Random hydration tips  
-✔ Turtle-style animated mascot (emoji)  
-✔ Dark/Light mode  
-✔ End-of-day celebration  
-✔ Weekly progress chart  
-✔ CSV storage for 7-day history  
-✔ Auto-save daily total when clicking “Reset Day”  
-✔ Reset weekly data  
+### 👤 User Onboarding
+- Name input  
+- Age selection  
+- Gender selection (Male / Female)  
+- Weight input  
+- Personalized daily water goal calculated automatically  
+- Goal can be changed later in **Settings**
+
+---
+
+## 🧍 Custom Avatar System
+- Two fully illustrated avatars (male & female, transparent PNG)  
+- Avatars resize dynamically for clean desktop layout  
+- Centered inside a dedicated avatar panel  
+- Hydration message printed on the avatar's shirt  
+
+---
+
+## 💧 Water Tracking
+- Quick-add buttons: **250 ml, 350 ml, 500 ml**  
+- Manual entry box  
+- Daily progress bar (percentage + ml)  
+- Remaining water displayed live  
+- Auto-save progress for each day  
+
+---
+
+## 🎉 Mascot Reactions
+The WaterBuddy mascot reacts based on percentage of goal:
+
+| Progress | Reaction |
+|---------|----------|
+| 0–49%   | Neutral  |
+| 50%     | Smile    |
+| 75%     | Cheer    |
+| 100%    | Celebration popup + confetti |
+
+The celebration includes:
+- Large “celebrate” mascot  
+- Animated confetti  
+- Motivational message  
 
 ---
 
 ## 📊 Weekly Progress Chart
-
-Your daily water intake is saved to a CSV file and displayed as a bar chart.
-You can track up to 7 days of hydration history.
+- Automatically stores daily hydration totals in **weekly_data.csv**  
+- Weekly bar chart (last 7 days)  
+- Uses Matplotlib  
+- Bars auto-scale based on user’s daily goal  
 
 ---
 
-## 🚀 Running the App Locally
+## ⚙️ Settings
+- Change daily goal anytime  
+- Everything updates instantly  
+- Keeps progress saved  
 
-```bash
-pip install -r requirements.txt
-streamlit run app.py
+---
+
+## 📁 Project Structure
+
