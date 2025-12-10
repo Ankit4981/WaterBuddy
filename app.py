@@ -14,79 +14,83 @@ st.markdown("""
 <style>
     /* Main app background */
     .stApp {
-        background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 50%, #7DD3FC 100%);
+        background: linear-gradient(135deg, #DBEAFE 0%, #93C5FD 50%, #60A5FA 100%);
     }
     
     .main-header {
         text-align: center;
-        color: #0369A1;
+        color: #1E40AF;
         font-size: 2.5rem;
         font-weight: bold;
         margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
     }
     .tagline {
         text-align: center;
-        color: #0C4A6E;
-        font-size: 1rem;
+        color: #1E3A8A;
+        font-size: 1.1rem;
         margin-bottom: 2rem;
+        font-weight: 500;
     }
     .stat-box {
-        background: linear-gradient(135deg, #0EA5E9 0%, #06B6D4 100%);
-        padding: 1.5rem;
-        border-radius: 1rem;
+        background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+        padding: 2rem;
+        border-radius: 1.5rem;
         color: white;
         text-align: center;
-        margin: 1rem 0;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin: 1.5rem 0;
+        box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
     }
     .stat-number {
-        font-size: 3rem;
+        font-size: 3.5rem;
         font-weight: bold;
         margin: 0;
     }
     .stat-label {
-        font-size: 1rem;
-        opacity: 0.9;
+        font-size: 1.1rem;
+        opacity: 0.95;
+        font-weight: 500;
     }
     .message-box {
-        background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
-        padding: 1rem;
-        border-radius: 0.75rem;
-        border-left: 4px solid #0EA5E9;
-        margin: 1rem 0;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    }
-    .age-card {
         background: white;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        border: 2px solid #BAE6FD;
-        margin: 0.5rem 0;
+        padding: 1.25rem;
+        border-radius: 1rem;
+        border-left: 5px solid #3B82F6;
+        margin: 1rem 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     .stButton>button {
         width: 100%;
-        background: linear-gradient(135deg, #8BD8FF 0%, #38BDF8 100%);
+        background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
         color: white;
         font-weight: bold;
         border: none;
         border-radius: 2rem;
-        padding: 0.75rem;
-        font-size: 1rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 0.85rem;
+        font-size: 1.05rem;
+        box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
         transition: all 0.3s ease;
     }
     .stButton>button:hover {
-        background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        transform: translateY(-1px);
+        background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+        box-shadow: 0 6px 12px rgba(59, 130, 246, 0.4);
+        transform: translateY(-2px);
     }
     
-    /* Card backgrounds */
-    div[data-testid="stVerticalBlock"] > div {
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(10px);
-        border-radius: 1rem;
-        padding: 1rem;
+    /* Text input styling */
+    .stTextInput input {
+        font-size: 1.1rem;
+        padding: 0.75rem;
+        border-radius: 0.75rem;
+        border: 2px solid #93C5FD;
+    }
+    
+    /* Number input styling */
+    .stNumberInput input {
+        font-size: 1.1rem;
+        padding: 0.75rem;
+        border-radius: 0.75rem;
+        border: 2px solid #93C5FD;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -177,23 +181,24 @@ def go_to_settings():
 # WELCOME SCREEN
 if st.session_state.screen == 'welcome':
     st.markdown("<div style='text-align: center; margin-top: 3rem;'>", unsafe_allow_html=True)
-    st.markdown("<h1 style='font-size: 4rem;'>💧</h1>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size: 5rem; margin-bottom: 1rem;'>💧</div>", unsafe_allow_html=True)
     st.markdown("<h1 class='main-header'>Water Buddy</h1>", unsafe_allow_html=True)
     st.markdown("<p class='tagline'>Stay fresh through the day<br>let Water Buddy guide your way</p>", unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
     
-    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown("<br><br>", unsafe_allow_html=True)
     if st.button("Continue", key="welcome_btn"):
         go_to_name()
 
 # NAME SCREEN
 elif st.session_state.screen == 'name':
-    st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
-    st.markdown("<h1 style='font-size: 4rem;'>👤</h1>", unsafe_allow_html=True)
-    st.markdown("<h3>What is your name?</h3>", unsafe_allow_html=True)
-    st.markdown("<p style='color: #64748B; font-size: 0.9rem;'>Only used to personalize your experience</p>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: center; padding-top: 2rem;'>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size: 5rem; margin-bottom: 1rem;'>👤</div>", unsafe_allow_html=True)
+    st.markdown("<h2 style='color: #1E40AF; font-weight: bold;'>What is your name?</h2>", unsafe_allow_html=True)
+    st.markdown("<p style='color: #64748B; font-size: 1rem; margin-top: 0.5rem;'>Only used to personalize your experience</p>", unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
     
+    st.markdown("<br>", unsafe_allow_html=True)
     name_input = st.text_input("", value=st.session_state.name, placeholder="Enter your name", label_visibility="collapsed")
     st.session_state.name = name_input
     
@@ -203,47 +208,52 @@ elif st.session_state.screen == 'name':
 
 # AGE GROUP SCREEN
 elif st.session_state.screen == 'age':
-    st.markdown("<h3>Select your age group</h3>", unsafe_allow_html=True)
-    st.markdown("<p style='color: #64748B; font-size: 0.9rem;'>Water intake is based on age-specific health standards</p>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: center; padding-top: 2rem;'>", unsafe_allow_html=True)
+    st.markdown("<h2 style='color: #1E40AF; font-weight: bold;'>Select your age group</h2>", unsafe_allow_html=True)
+    st.markdown("<p style='color: #64748B; font-size: 1rem;'>Water intake is based on age-specific health standards</p>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
     
     st.markdown("<br>", unsafe_allow_html=True)
     
     for group, data in AGE_GROUPS.items():
-        col1, col2 = st.columns([4, 1])
-        with col1:
-            button_text = f"{data['emoji']} {group} - {data['range']}"
-            if st.button(button_text, key=f"age_{group}", use_container_width=True):
-                st.session_state.age_group = group
-                go_to_gender()
+        button_text = f"{data['emoji']} {group} - {data['range']}"
+        if st.button(button_text, key=f"age_{group}", use_container_width=True):
+            st.session_state.age_group = group
+            go_to_gender()
 
 # GENDER SCREEN
 elif st.session_state.screen == 'gender':
-    st.markdown("<h3>Choose your gender</h3>", unsafe_allow_html=True)
-    st.markdown("<p style='color: #64748B; font-size: 0.9rem;'>We use your body type to tailor your daily water intake</p>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: center; padding-top: 2rem;'>", unsafe_allow_html=True)
+    st.markdown("<h2 style='color: #1E40AF; font-weight: bold;'>Choose your gender</h2>", unsafe_allow_html=True)
+    st.markdown("<p style='color: #64748B; font-size: 1rem;'>We use your body type to tailor your daily water intake</p>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
     
-    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown("<br><br>", unsafe_allow_html=True)
     
     col1, col2 = st.columns(2)
     with col1:
-        st.markdown("<div style='text-align: center; font-size: 3rem;'>👨</div>", unsafe_allow_html=True)
+        st.markdown("<div style='text-align: center; font-size: 4rem; margin-bottom: 1rem;'>👨</div>", unsafe_allow_html=True)
         if st.button("Male", key="male_btn", use_container_width=True):
             st.session_state.gender = 'Male'
             go_to_weight()
     with col2:
-        st.markdown("<div style='text-align: center; font-size: 3rem;'>👩</div>", unsafe_allow_html=True)
+        st.markdown("<div style='text-align: center; font-size: 4rem; margin-bottom: 1rem;'>👩</div>", unsafe_allow_html=True)
         if st.button("Female", key="female_btn", use_container_width=True):
             st.session_state.gender = 'Female'
             go_to_weight()
 
 # WEIGHT SCREEN
 elif st.session_state.screen == 'weight':
-    st.markdown("<h3>What is your weight?</h3>", unsafe_allow_html=True)
-    st.markdown("<p style='color: #64748B; font-size: 0.9rem;'>Your ideal daily water intake is closely tied to your body weight</p>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: center; padding-top: 2rem;'>", unsafe_allow_html=True)
+    st.markdown("<h2 style='color: #1E40AF; font-weight: bold;'>What is your weight?</h2>", unsafe_allow_html=True)
+    st.markdown("<p style='color: #64748B; font-size: 1rem;'>Your ideal daily water intake is closely tied to your body weight</p>", unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
     
-    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown("<br><br>", unsafe_allow_html=True)
     
     unit = st.radio("Unit", ["kg", "lbs"], horizontal=True, label_visibility="collapsed")
     
+    st.markdown("<br>", unsafe_allow_html=True)
     weight = st.number_input(
         "Weight",
         min_value=1,
@@ -260,13 +270,13 @@ elif st.session_state.screen == 'weight':
 
 # GOAL SCREEN
 elif st.session_state.screen == 'goal':
-    st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
-    st.markdown("<h1 style='font-size: 4rem;'>🎯</h1>", unsafe_allow_html=True)
-    st.markdown("<h3>Your Daily Goal</h3>", unsafe_allow_html=True)
-    st.markdown("<p style='color: #64748B; font-size: 0.9rem;'>You can adjust your own manual daily goal</p>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: center; padding-top: 2rem;'>", unsafe_allow_html=True)
+    st.markdown("<div style='font-size: 5rem; margin-bottom: 1rem;'>🎯</div>", unsafe_allow_html=True)
+    st.markdown("<h2 style='color: #1E40AF; font-weight: bold;'>Your Daily Goal</h2>", unsafe_allow_html=True)
+    st.markdown("<p style='color: #64748B; font-size: 1rem;'>You can adjust your own manual daily goal</p>", unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
     
-    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown("<br><br>", unsafe_allow_html=True)
     
     goal = st.number_input(
         "Daily Goal (ml)",
@@ -278,8 +288,8 @@ elif st.session_state.screen == 'goal':
     )
     st.session_state.daily_goal = goal
     
-    st.markdown(f"<p style='text-align: center; font-size: 3rem; font-weight: bold; color: #0EA5E9;'>{goal} ml</p>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center; color: #64748B;'>per day</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='text-align: center; font-size: 4rem; font-weight: bold; color: #3B82F6; margin: 1rem 0;'>{goal} ml</p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center; color: #64748B; font-size: 1.1rem;'>per day</p>", unsafe_allow_html=True)
     
     st.markdown("<br>", unsafe_allow_html=True)
     if st.button("Start Tracking", key="goal_btn"):
@@ -288,12 +298,12 @@ elif st.session_state.screen == 'goal':
 # TRACKER SCREEN (Main App)
 elif st.session_state.screen == 'tracker':
     # Header
-    col1, col2 = st.columns([3, 1])
+    col1, col2 = st.columns([4, 1])
     with col1:
-        st.markdown(f"<h2>{st.session_state.name}</h2>", unsafe_allow_html=True)
-        st.markdown(f"<strong>{datetime.now().strftime('%A')}</strong>", unsafe_allow_html=True)
+        st.markdown(f"<h2 style='color: #1E40AF; margin-bottom: 0;'>{st.session_state.name}</h2>", unsafe_allow_html=True)
+        st.markdown(f"<p style='color: #64748B; font-size: 1rem;'>{datetime.now().strftime('%A')}</p>", unsafe_allow_html=True)
     with col2:
-        if st.button("⚙️", key="settings_btn"):
+        if st.button("⚙️ Settings", key="settings_btn"):
             go_to_settings()
     
     st.markdown("---")
@@ -317,15 +327,15 @@ elif st.session_state.screen == 'tracker':
     
     # Motivational Message
     st.markdown(f"""
-    <div class='message-box' style='border-left-color: {color};'>
-        <strong style='color: {color};'>{message}</strong>
+    <div class='message-box'>
+        <p style='color: {color}; font-size: 1.1rem; font-weight: 600; margin: 0; text-align: center;'>{message}</p>
     </div>
     """, unsafe_allow_html=True)
     
     st.markdown("---")
     
     # Quick Add Section
-    st.markdown("<h3>⚡ Quick Add Water</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='color: #1E40AF;'>⚡ Quick Add Water</h3>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns(3)
     
     with col1:
@@ -344,7 +354,8 @@ elif st.session_state.screen == 'tracker':
             st.rerun()
     
     # Custom Amount
-    st.markdown("<h3>✏️ Custom Amount</h3>", unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown("<h3 style='color: #1E40AF;'>✏️ Custom Amount</h3>", unsafe_allow_html=True)
     col1, col2 = st.columns([3, 1])
     with col1:
         custom_amount = st.number_input("Custom ml", min_value=1, max_value=2000, value=250, step=50, label_visibility="collapsed")
@@ -363,8 +374,8 @@ elif st.session_state.screen == 'tracker':
     # Footer Info
     st.markdown("---")
     st.markdown(f"""
-    <div style='text-align: center; color: #64748B; font-size: 0.9rem;'>
-        <p>Daily Goal: {st.session_state.daily_goal} ml</p>
+    <div style='text-align: center; color: #64748B; font-size: 1rem;'>
+        <p style='font-weight: 600; color: #1E40AF;'>Daily Goal: {st.session_state.daily_goal} ml</p>
         <p>{st.session_state.age_group}</p>
     </div>
     """, unsafe_allow_html=True)
