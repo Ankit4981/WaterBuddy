@@ -157,13 +157,74 @@ def get_remaining():
 
 def get_droppy_message(percentage):
     if percentage >= 100:
-        return "🎉 Goal Achieved! Amazing job staying hydrated!", "#10B981"
+        return "🎉 Goal Achieved! Amazing job staying hydrated!", "#10B981", "😄"
     elif percentage >= 75:
-        return "💪 Keep it up! Almost there!", "#0EA5E9"
+        return "💪 Keep it up! Almost there!", "#0EA5E9", "😊"
     elif percentage >= 50:
-        return "👍 Great progress! Stay hydrated!", "#06B6D4"
+        return "👍 Great progress! Stay hydrated!", "#06B6D4", "🙂"
     else:
-        return "💧 Let's stay hydrated! Small sips add up", "#38BDF8"
+        return "💧 Let's stay hydrated! Small sips add up", "#38BDF8", "😐"
+
+def get_droppy_mascot(percentage):
+    """Returns ASCII art water droplet mascot with different expressions"""
+    if percentage >= 100:
+        # Happy/Celebrating
+        return """
+        <div style='text-align: center; font-family: monospace; color: #3B82F6; font-size: 1rem; line-height: 1.2;'>
+            <pre style='display: inline-block; text-align: left;'>
+    ⭐ ✨ ⭐
+     ╱◕ ◕╲
+    │  ▽  │
+    │ ╰─╯ │
+     ╲   ╱
+      ╰─╯
+   🎉 💧 🎉
+            </pre>
+        </div>
+        """
+    elif percentage >= 75:
+        # Motivated/Pumped
+        return """
+        <div style='text-align: center; font-family: monospace; color: #3B82F6; font-size: 1rem; line-height: 1.2;'>
+            <pre style='display: inline-block; text-align: left;'>
+      💪    
+     ╱◕ ◕╲
+    │  ◡  │
+    │     │
+     ╲   ╱
+      ╰─╯
+      💧
+            </pre>
+        </div>
+        """
+    elif percentage >= 50:
+        # Happy/Smiling
+        return """
+        <div style='text-align: center; font-family: monospace; color: #3B82F6; font-size: 1rem; line-height: 1.2;'>
+            <pre style='display: inline-block; text-align: left;'>
+     ╱◕ ◕╲
+    │  ◡  │
+    │     │
+     ╲   ╱
+      ╰─╯
+      💧
+            </pre>
+        </div>
+        """
+    else:
+        # Neutral/Encouraging
+        return """
+        <div style='text-align: center; font-family: monospace; color: #3B82F6; font-size: 1rem; line-height: 1.2;'>
+            <pre style='display: inline-block; text-align: left;'>
+     ╱• •╲
+    │  ─  │
+    │     │
+     ╲   ╱
+      ╰─╯
+      💧
+            </pre>
+        </div>
+        """
 
 def add_water(amount):
     st.session_state.total_intake += amount
@@ -346,7 +407,8 @@ elif st.session_state.screen == 'tracker':
     # Main Stats
     percentage = get_percentage()
     remaining = get_remaining()
-    message, color = get_droppy_message(percentage)
+    message, color, emoji = get_droppy_message(percentage)
+    mascot = get_droppy_mascot(percentage)
     
     # Progress Display
     st.markdown(f"""
@@ -359,6 +421,9 @@ elif st.session_state.screen == 'tracker':
     
     # Progress Bar
     st.progress(percentage / 100)
+    
+    # Droppy Mascot
+    st.markdown(mascot, unsafe_allow_html=True)
     
     # Motivational Message
     st.markdown(f"""
