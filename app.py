@@ -141,9 +141,9 @@ if 'total_intake' not in st.session_state:
 
 # Age group data
 AGE_GROUPS = {
-    'Kids (4-8 years)': {'goal': 1200, 'range': '~1200 ml', 'emoji': '👶'},
-    'Teens (9-13 years)': {'goal': 1700, 'range': '~1700 ml', 'emoji': '🧒'},
-    'Adults (14-64 years)': {'goal': 2000, 'range': '~2000 ml', 'emoji': '🧑'},
+    'Kids (6-12 years)': {'goal': 1200, 'range': '~1200 ml', 'emoji': '👶'},
+    'Teens (13-18 years)': {'goal': 1700, 'range': '~1700 ml', 'emoji': '🧒'},
+    'Adults (19-50 years)': {'goal': 2000, 'range': '~2000 ml', 'emoji': '🧑'},
     'Seniors (65+ years)': {'goal': 1800, 'range': '~1800 ml', 'emoji': '👴'}
 }
 
