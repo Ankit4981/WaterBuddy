@@ -37,7 +37,7 @@ st.markdown("""
         padding: 2rem;
         border-radius: 1.5rem;
         border: 3px solid #000000;
-        color: white;
+        color: #000000;
         text-align: center;
         margin: 1.5rem 0;
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
@@ -46,14 +46,17 @@ st.markdown("""
         font-size: 3.5rem;
         font-weight: bold;
         margin: 0;
+        color: #FFFFFF;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
     .stat-label {
         font-size: 1.1rem;
-        opacity: 0.95;
         font-weight: 500;
+        color: #FFFFFF;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     }
     .message-box {
-        background: white;
+        background: #FFFFFF;
         padding: 1.25rem;
         border-radius: 1rem;
         border: 3px solid #000000;
@@ -63,7 +66,7 @@ st.markdown("""
     .stButton>button {
         width: 100%;
         background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
-        color: white;
+        color: #000000;
         font-weight: bold;
         border: 3px solid #000000 !important;
         border-radius: 2rem;
@@ -77,6 +80,7 @@ st.markdown("""
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
         transform: translateY(-2px);
         border: 3px solid #000000 !important;
+        color: #000000;
     }
     
     /* Text input styling */
@@ -85,7 +89,8 @@ st.markdown("""
         padding: 0.75rem;
         border-radius: 0.75rem;
         border: 3px solid #000000 !important;
-        background: white;
+        background: #FFFFFF;
+        color: #000000;
     }
     
     /* Number input styling */
@@ -94,7 +99,8 @@ st.markdown("""
         padding: 0.75rem;
         border-radius: 0.75rem;
         border: 3px solid #000000 !important;
-        background: white;
+        background: #FFFFFF;
+        color: #000000;
     }
     
     /* Radio button styling */
@@ -102,12 +108,12 @@ st.markdown("""
         border: 3px solid #000000;
         border-radius: 1rem;
         padding: 0.5rem;
-        background: white;
+        background: #FFFFFF;
     }
     
     /* Content boxes */
     .content-box {
-        background: white;
+        background: #FFFFFF;
         border: 3px solid #000000;
         border-radius: 1.5rem;
         padding: 2rem;
@@ -166,47 +172,144 @@ def get_droppy_message(percentage):
         return "💧 Let's stay hydrated! Small sips add up", "#38BDF8", "😐"
 
 def get_droppy_mascot(percentage):
-    """Returns visual water droplet mascot with different expressions"""
+    """Returns SVG water droplet mascot with different expressions"""
     if percentage >= 100:
-        # Celebrating - like celebrate.png
+        # Celebrating - arms up, party mode!
         return """
         <div style='text-align: center; padding: 2rem 0;'>
-            <div style='font-size: 8rem; margin-bottom: 0.5rem; animation: bounce 0.5s infinite alternate;'>💧</div>
-            <div style='font-size: 2rem;'>🎉 ✨ 🎊</div>
-            <div style='font-size: 3rem; margin-top: 0.5rem;'>💪 😄 💪</div>
-            <style>
-                @keyframes bounce {
-                    from { transform: translateY(0px); }
-                    to { transform: translateY(-20px); }
-                }
-            </style>
+            <svg width="250" height="300" viewBox="0 0 250 300" xmlns="http://www.w3.org/2000/svg">
+                <!-- Party decorations -->
+                <text x="30" y="40" font-size="24">🎉</text>
+                <text x="190" y="40" font-size="24">✨</text>
+                <text x="50" y="20" font-size="24">🎊</text>
+                <text x="170" y="20" font-size="24">⭐</text>
+                
+                <!-- Water droplet body -->
+                <path d="M 125 50 Q 90 80 90 130 Q 90 180 125 200 Q 160 180 160 130 Q 160 80 125 50 Z" 
+                      fill="#60A5FA" stroke="#2563EB" stroke-width="4"/>
+                <!-- Light reflection -->
+                <ellipse cx="110" cy="90" rx="15" ry="25" fill="#93C5FD" opacity="0.6"/>
+                
+                <!-- Face - Celebrating -->
+                <ellipse cx="110" cy="115" rx="8" ry="12" fill="#1E3A8A"/>
+                <ellipse cx="140" cy="115" rx="8" ry="12" fill="#1E3A8A"/>
+                <path d="M 100 140 Q 125 160 150 140" stroke="#DC2626" stroke-width="4" fill="none" stroke-linecap="round"/>
+                <path d="M 105 145 Q 125 155 145 145" fill="#DC2626"/>
+                
+                <!-- Arms - Up celebrating -->
+                <ellipse cx="60" cy="100" rx="18" ry="25" fill="#3B82F6" stroke="#2563EB" stroke-width="3" transform="rotate(-45 60 100)"/>
+                <ellipse cx="190" cy="100" rx="18" ry="25" fill="#3B82F6" stroke="#2563EB" stroke-width="3" transform="rotate(45 190 100)"/>
+                <!-- Fists -->
+                <circle cx="50" cy="80" r="15" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
+                <circle cx="200" cy="80" r="15" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
+                
+                <!-- Legs -->
+                <ellipse cx="110" cy="220" rx="12" ry="20" fill="#3B82F6" stroke="#2563EB" stroke-width="3"/>
+                <ellipse cx="140" cy="220" rx="12" ry="20" fill="#3B82F6" stroke="#2563EB" stroke-width="3"/>
+                <!-- Feet -->
+                <ellipse cx="110" cy="240" rx="18" ry="10" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
+                <ellipse cx="140" cy="240" rx="18" ry="10" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
+            </svg>
+            <div style='font-size: 1.3rem; color: #000000; font-weight: bold; margin-top: 0.5rem;'>🎉 GOAL ACHIEVED! 🎉</div>
         </div>
         """
     elif percentage >= 75:
-        # Motivated/Cheering - like cheer.png
+        # Motivated/Cheering - flexing arms
         return """
         <div style='text-align: center; padding: 2rem 0;'>
-            <div style='font-size: 8rem; margin-bottom: 0.5rem;'>💧</div>
-            <div style='font-size: 3rem;'>💪 😊 💪</div>
-            <div style='font-size: 1.5rem; color: #3B82F6; font-weight: bold; margin-top: 0.5rem;'>Almost there!</div>
+            <svg width="250" height="300" viewBox="0 0 250 300" xmlns="http://www.w3.org/2000/svg">
+                <!-- Water droplet body -->
+                <path d="M 125 50 Q 90 80 90 130 Q 90 180 125 200 Q 160 180 160 130 Q 160 80 125 50 Z" 
+                      fill="#60A5FA" stroke="#2563EB" stroke-width="4"/>
+                <!-- Light reflection -->
+                <ellipse cx="110" cy="90" rx="15" ry="25" fill="#93C5FD" opacity="0.6"/>
+                
+                <!-- Face - Happy/Excited -->
+                <circle cx="110" cy="115" r="6" fill="#1E3A8A"/>
+                <circle cx="140" cy="115" r="6" fill="#1E3A8A"/>
+                <path d="M 100 140 Q 125 155 150 140" stroke="#DC2626" stroke-width="3" fill="none" stroke-linecap="round"/>
+                
+                <!-- Arms - Flexing up -->
+                <ellipse cx="65" cy="110" rx="18" ry="25" fill="#3B82F6" stroke="#2563EB" stroke-width="3" transform="rotate(-30 65 110)"/>
+                <ellipse cx="185" cy="110" rx="18" ry="25" fill="#3B82F6" stroke="#2563EB" stroke-width="3" transform="rotate(30 185 110)"/>
+                <!-- Fists -->
+                <circle cx="55" cy="90" r="15" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
+                <circle cx="195" cy="90" r="15" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
+                
+                <!-- Legs -->
+                <ellipse cx="110" cy="220" rx="12" ry="20" fill="#3B82F6" stroke="#2563EB" stroke-width="3"/>
+                <ellipse cx="140" cy="220" rx="12" ry="20" fill="#3B82F6" stroke="#2563EB" stroke-width="3"/>
+                <!-- Feet -->
+                <ellipse cx="110" cy="240" rx="18" ry="10" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
+                <ellipse cx="140" cy="240" rx="18" ry="10" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
+            </svg>
+            <div style='font-size: 1.3rem; color: #000000; font-weight: bold; margin-top: 0.5rem;'>💪 Keep going! Almost there!</div>
         </div>
         """
     elif percentage >= 50:
-        # Happy/Smiling - like smile.png
+        # Happy/Smiling - relaxed arms
         return """
         <div style='text-align: center; padding: 2rem 0;'>
-            <div style='font-size: 8rem; margin-bottom: 0.5rem;'>💧</div>
-            <div style='font-size: 3rem;'>😊</div>
-            <div style='font-size: 1.5rem; color: #3B82F6; font-weight: bold; margin-top: 0.5rem;'>Good job!</div>
+            <svg width="250" height="300" viewBox="0 0 250 300" xmlns="http://www.w3.org/2000/svg">
+                <!-- Water droplet body -->
+                <path d="M 125 50 Q 90 80 90 130 Q 90 180 125 200 Q 160 180 160 130 Q 160 80 125 50 Z" 
+                      fill="#60A5FA" stroke="#2563EB" stroke-width="4"/>
+                <!-- Light reflection -->
+                <ellipse cx="110" cy="90" rx="15" ry="25" fill="#93C5FD" opacity="0.6"/>
+                
+                <!-- Face - Smiling -->
+                <circle cx="110" cy="115" r="5" fill="#1E3A8A"/>
+                <circle cx="140" cy="115" r="5" fill="#1E3A8A"/>
+                <path d="M 105 140 Q 125 150 145 140" stroke="#DC2626" stroke-width="3" fill="none" stroke-linecap="round"/>
+                
+                <!-- Arms - Down relaxed -->
+                <ellipse cx="75" cy="140" rx="15" ry="28" fill="#3B82F6" stroke="#2563EB" stroke-width="3" transform="rotate(15 75 140)"/>
+                <ellipse cx="175" cy="140" rx="15" ry="28" fill="#3B82F6" stroke="#2563EB" stroke-width="3" transform="rotate(-15 175 140)"/>
+                <!-- Hands -->
+                <circle cx="70" cy="165" r="12" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
+                <circle cx="180" cy="165" r="12" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
+                
+                <!-- Legs -->
+                <ellipse cx="110" cy="220" rx="12" ry="20" fill="#3B82F6" stroke="#2563EB" stroke-width="3"/>
+                <ellipse cx="140" cy="220" rx="12" ry="20" fill="#3B82F6" stroke="#2563EB" stroke-width="3"/>
+                <!-- Feet -->
+                <ellipse cx="110" cy="240" rx="18" ry="10" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
+                <ellipse cx="140" cy="240" rx="18" ry="10" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
+            </svg>
+            <div style='font-size: 1.3rem; color: #000000; font-weight: bold; margin-top: 0.5rem;'>😊 Great progress!</div>
         </div>
         """
     else:
-        # Neutral/Encouraging - like neutral.png
+        # Neutral/Encouraging - arms down
         return """
         <div style='text-align: center; padding: 2rem 0;'>
-            <div style='font-size: 8rem; margin-bottom: 0.5rem;'>💧</div>
-            <div style='font-size: 3rem;'>😐</div>
-            <div style='font-size: 1.5rem; color: #3B82F6; font-weight: bold; margin-top: 0.5rem;'>Let's go!</div>
+            <svg width="250" height="300" viewBox="0 0 250 300" xmlns="http://www.w3.org/2000/svg">
+                <!-- Water droplet body -->
+                <path d="M 125 50 Q 90 80 90 130 Q 90 180 125 200 Q 160 180 160 130 Q 160 80 125 50 Z" 
+                      fill="#60A5FA" stroke="#2563EB" stroke-width="4"/>
+                <!-- Light reflection -->
+                <ellipse cx="110" cy="90" rx="15" ry="25" fill="#93C5FD" opacity="0.6"/>
+                
+                <!-- Face - Neutral -->
+                <circle cx="110" cy="115" r="5" fill="#1E3A8A"/>
+                <circle cx="140" cy="115" r="5" fill="#1E3A8A"/>
+                <line x1="105" y1="145" x2="145" y2="145" stroke="#1E3A8A" stroke-width="3" stroke-linecap="round"/>
+                
+                <!-- Arms - Down straight -->
+                <ellipse cx="75" cy="145" rx="15" ry="30" fill="#3B82F6" stroke="#2563EB" stroke-width="3"/>
+                <ellipse cx="175" cy="145" rx="15" ry="30" fill="#3B82F6" stroke="#2563EB" stroke-width="3"/>
+                <!-- Hands -->
+                <circle cx="75" cy="175" r="12" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
+                <circle cx="175" cy="175" r="12" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
+                
+                <!-- Legs -->
+                <ellipse cx="110" cy="220" rx="12" ry="20" fill="#3B82F6" stroke="#2563EB" stroke-width="3"/>
+                <ellipse cx="140" cy="220" rx="12" ry="20" fill="#3B82F6" stroke="#2563EB" stroke-width="3"/>
+                <!-- Feet -->
+                <ellipse cx="110" cy="240" rx="18" ry="10" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
+                <ellipse cx="140" cy="240" rx="18" ry="10" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
+            </svg>
+            <div style='font-size: 1.3rem; color: #000000; font-weight: bold; margin-top: 0.5rem;'>💧 Let's get hydrated!</div>
         </div>
         """
 
