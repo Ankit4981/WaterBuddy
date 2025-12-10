@@ -172,143 +172,132 @@ def get_droppy_message(percentage):
         return "💧 Let's stay hydrated! Small sips add up", "#38BDF8", "😐"
 
 def get_droppy_mascot(percentage):
-    """Returns SVG water droplet mascot with different expressions"""
+    """Returns visual water droplet mascot with different expressions using components"""
     if percentage >= 100:
         # Celebrating - arms up, party mode!
         return """
-        <div style='text-align: center; padding: 2rem 0;'>
-            <svg width="250" height="300" viewBox="0 0 250 300" xmlns="http://www.w3.org/2000/svg">
-                <!-- Party decorations -->
-                <text x="30" y="40" font-size="24">🎉</text>
-                <text x="190" y="40" font-size="24">✨</text>
-                <text x="50" y="20" font-size="24">🎊</text>
-                <text x="170" y="20" font-size="24">⭐</text>
+        <div style='text-align: center; padding: 1rem 0;'>
+            <div style='position: relative; display: inline-block; width: 200px; height: 250px;'>
+                <!-- Party emojis -->
+                <span style='position: absolute; left: 10px; top: 10px; font-size: 1.5rem;'>🎉</span>
+                <span style='position: absolute; right: 10px; top: 10px; font-size: 1.5rem;'>✨</span>
+                <span style='position: absolute; left: 30px; top: 0px; font-size: 1.5rem;'>🎊</span>
+                <span style='position: absolute; right: 30px; top: 0px; font-size: 1.5rem;'>⭐</span>
                 
-                <!-- Water droplet body -->
-                <path d="M 125 50 Q 90 80 90 130 Q 90 180 125 200 Q 160 180 160 130 Q 160 80 125 50 Z" 
-                      fill="#60A5FA" stroke="#2563EB" stroke-width="4"/>
-                <!-- Light reflection -->
-                <ellipse cx="110" cy="90" rx="15" ry="25" fill="#93C5FD" opacity="0.6"/>
+                <!-- Left arm up -->
+                <div style='position: absolute; left: 20px; top: 70px; width: 30px; height: 50px; background: linear-gradient(135deg, #60A5FA, #3B82F6); border-radius: 15px; transform: rotate(-45deg); border: 2px solid #2563EB;'></div>
+                <div style='position: absolute; left: 10px; top: 55px; width: 25px; height: 25px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
                 
-                <!-- Face - Celebrating -->
-                <ellipse cx="110" cy="115" rx="8" ry="12" fill="#1E3A8A"/>
-                <ellipse cx="140" cy="115" rx="8" ry="12" fill="#1E3A8A"/>
-                <path d="M 100 140 Q 125 160 150 140" stroke="#DC2626" stroke-width="4" fill="none" stroke-linecap="round"/>
-                <path d="M 105 145 Q 125 155 145 145" fill="#DC2626"/>
+                <!-- Right arm up -->
+                <div style='position: absolute; right: 20px; top: 70px; width: 30px; height: 50px; background: linear-gradient(135deg, #60A5FA, #3B82F6); border-radius: 15px; transform: rotate(45deg); border: 2px solid #2563EB;'></div>
+                <div style='position: absolute; right: 10px; top: 55px; width: 25px; height: 25px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
                 
-                <!-- Arms - Up celebrating -->
-                <ellipse cx="60" cy="100" rx="18" ry="25" fill="#3B82F6" stroke="#2563EB" stroke-width="3" transform="rotate(-45 60 100)"/>
-                <ellipse cx="190" cy="100" rx="18" ry="25" fill="#3B82F6" stroke="#2563EB" stroke-width="3" transform="rotate(45 190 100)"/>
-                <!-- Fists -->
-                <circle cx="50" cy="80" r="15" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
-                <circle cx="200" cy="80" r="15" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
+                <!-- Droplet body -->
+                <div style='position: absolute; left: 50%; top: 50px; transform: translateX(-50%); width: 80px; height: 100px; background: linear-gradient(135deg, #93C5FD 0%, #60A5FA 50%, #3B82F6 100%); border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; border: 3px solid #2563EB;'>
+                    <!-- Light reflection -->
+                    <div style='position: absolute; left: 10px; top: 15px; width: 20px; height: 30px; background: rgba(147, 197, 253, 0.6); border-radius: 50%; transform: rotate(-20deg);'></div>
+                    <!-- Eyes -->
+                    <div style='position: absolute; left: 15px; top: 35px; width: 12px; height: 18px; background: #1E3A8A; border-radius: 50%;'></div>
+                    <div style='position: absolute; right: 15px; top: 35px; width: 12px; height: 18px; background: #1E3A8A; border-radius: 50%;'></div>
+                    <!-- Big smile -->
+                    <div style='position: absolute; left: 15px; top: 60px; width: 50px; height: 25px; border: 3px solid #DC2626; border-top: none; border-radius: 0 0 50% 50%; background: #DC2626;'></div>
+                </div>
                 
                 <!-- Legs -->
-                <ellipse cx="110" cy="220" rx="12" ry="20" fill="#3B82F6" stroke="#2563EB" stroke-width="3"/>
-                <ellipse cx="140" cy="220" rx="12" ry="20" fill="#3B82F6" stroke="#2563EB" stroke-width="3"/>
+                <div style='position: absolute; left: 55px; top: 160px; width: 20px; height: 35px; background: linear-gradient(180deg, #60A5FA, #3B82F6); border-radius: 10px; border: 2px solid #2563EB;'></div>
+                <div style='position: absolute; right: 55px; top: 160px; width: 20px; height: 35px; background: linear-gradient(180deg, #60A5FA, #3B82F6); border-radius: 10px; border: 2px solid #2563EB;'></div>
+                
                 <!-- Feet -->
-                <ellipse cx="110" cy="240" rx="18" ry="10" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
-                <ellipse cx="140" cy="240" rx="18" ry="10" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
-            </svg>
+                <div style='position: absolute; left: 45px; top: 190px; width: 30px; height: 15px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
+                <div style='position: absolute; right: 45px; top: 190px; width: 30px; height: 15px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
+            </div>
             <div style='font-size: 1.3rem; color: #000000; font-weight: bold; margin-top: 0.5rem;'>🎉 GOAL ACHIEVED! 🎉</div>
         </div>
         """
     elif percentage >= 75:
         # Motivated/Cheering - flexing arms
         return """
-        <div style='text-align: center; padding: 2rem 0;'>
-            <svg width="250" height="300" viewBox="0 0 250 300" xmlns="http://www.w3.org/2000/svg">
-                <!-- Water droplet body -->
-                <path d="M 125 50 Q 90 80 90 130 Q 90 180 125 200 Q 160 180 160 130 Q 160 80 125 50 Z" 
-                      fill="#60A5FA" stroke="#2563EB" stroke-width="4"/>
-                <!-- Light reflection -->
-                <ellipse cx="110" cy="90" rx="15" ry="25" fill="#93C5FD" opacity="0.6"/>
+        <div style='text-align: center; padding: 1rem 0;'>
+            <div style='position: relative; display: inline-block; width: 200px; height: 250px;'>
+                <!-- Left arm flexing -->
+                <div style='position: absolute; left: 25px; top: 80px; width: 30px; height: 45px; background: linear-gradient(135deg, #60A5FA, #3B82F6); border-radius: 15px; transform: rotate(-30deg); border: 2px solid #2563EB;'></div>
+                <div style='position: absolute; left: 15px; top: 65px; width: 25px; height: 25px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
                 
-                <!-- Face - Happy/Excited -->
-                <circle cx="110" cy="115" r="6" fill="#1E3A8A"/>
-                <circle cx="140" cy="115" r="6" fill="#1E3A8A"/>
-                <path d="M 100 140 Q 125 155 150 140" stroke="#DC2626" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <!-- Right arm flexing -->
+                <div style='position: absolute; right: 25px; top: 80px; width: 30px; height: 45px; background: linear-gradient(135deg, #60A5FA, #3B82F6); border-radius: 15px; transform: rotate(30deg); border: 2px solid #2563EB;'></div>
+                <div style='position: absolute; right: 15px; top: 65px; width: 25px; height: 25px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
                 
-                <!-- Arms - Flexing up -->
-                <ellipse cx="65" cy="110" rx="18" ry="25" fill="#3B82F6" stroke="#2563EB" stroke-width="3" transform="rotate(-30 65 110)"/>
-                <ellipse cx="185" cy="110" rx="18" ry="25" fill="#3B82F6" stroke="#2563EB" stroke-width="3" transform="rotate(30 185 110)"/>
-                <!-- Fists -->
-                <circle cx="55" cy="90" r="15" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
-                <circle cx="195" cy="90" r="15" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
+                <!-- Droplet body -->
+                <div style='position: absolute; left: 50%; top: 50px; transform: translateX(-50%); width: 80px; height: 100px; background: linear-gradient(135deg, #93C5FD 0%, #60A5FA 50%, #3B82F6 100%); border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; border: 3px solid #2563EB;'>
+                    <div style='position: absolute; left: 10px; top: 15px; width: 20px; height: 30px; background: rgba(147, 197, 253, 0.6); border-radius: 50%; transform: rotate(-20deg);'></div>
+                    <div style='position: absolute; left: 18px; top: 35px; width: 10px; height: 10px; background: #1E3A8A; border-radius: 50%;'></div>
+                    <div style='position: absolute; right: 18px; top: 35px; width: 10px; height: 10px; background: #1E3A8A; border-radius: 50%;'></div>
+                    <div style='position: absolute; left: 20px; top: 60px; width: 40px; height: 15px; border: 3px solid #DC2626; border-top: none; border-radius: 0 0 50% 50%;'></div>
+                </div>
                 
-                <!-- Legs -->
-                <ellipse cx="110" cy="220" rx="12" ry="20" fill="#3B82F6" stroke="#2563EB" stroke-width="3"/>
-                <ellipse cx="140" cy="220" rx="12" ry="20" fill="#3B82F6" stroke="#2563EB" stroke-width="3"/>
-                <!-- Feet -->
-                <ellipse cx="110" cy="240" rx="18" ry="10" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
-                <ellipse cx="140" cy="240" rx="18" ry="10" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
-            </svg>
+                <div style='position: absolute; left: 55px; top: 160px; width: 20px; height: 35px; background: linear-gradient(180deg, #60A5FA, #3B82F6); border-radius: 10px; border: 2px solid #2563EB;'></div>
+                <div style='position: absolute; right: 55px; top: 160px; width: 20px; height: 35px; background: linear-gradient(180deg, #60A5FA, #3B82F6); border-radius: 10px; border: 2px solid #2563EB;'></div>
+                <div style='position: absolute; left: 45px; top: 190px; width: 30px; height: 15px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
+                <div style='position: absolute; right: 45px; top: 190px; width: 30px; height: 15px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
+            </div>
             <div style='font-size: 1.3rem; color: #000000; font-weight: bold; margin-top: 0.5rem;'>💪 Keep going! Almost there!</div>
         </div>
         """
     elif percentage >= 50:
         # Happy/Smiling - relaxed arms
         return """
-        <div style='text-align: center; padding: 2rem 0;'>
-            <svg width="250" height="300" viewBox="0 0 250 300" xmlns="http://www.w3.org/2000/svg">
-                <!-- Water droplet body -->
-                <path d="M 125 50 Q 90 80 90 130 Q 90 180 125 200 Q 160 180 160 130 Q 160 80 125 50 Z" 
-                      fill="#60A5FA" stroke="#2563EB" stroke-width="4"/>
-                <!-- Light reflection -->
-                <ellipse cx="110" cy="90" rx="15" ry="25" fill="#93C5FD" opacity="0.6"/>
+        <div style='text-align: center; padding: 1rem 0;'>
+            <div style='position: relative; display: inline-block; width: 200px; height: 250px;'>
+                <!-- Left arm down -->
+                <div style='position: absolute; left: 30px; top: 105px; width: 25px; height: 45px; background: linear-gradient(135deg, #60A5FA, #3B82F6); border-radius: 12px; transform: rotate(15deg); border: 2px solid #2563EB;'></div>
+                <div style='position: absolute; left: 25px; top: 145px; width: 20px; height: 20px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
                 
-                <!-- Face - Smiling -->
-                <circle cx="110" cy="115" r="5" fill="#1E3A8A"/>
-                <circle cx="140" cy="115" r="5" fill="#1E3A8A"/>
-                <path d="M 105 140 Q 125 150 145 140" stroke="#DC2626" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <!-- Right arm down -->
+                <div style='position: absolute; right: 30px; top: 105px; width: 25px; height: 45px; background: linear-gradient(135deg, #60A5FA, #3B82F6); border-radius: 12px; transform: rotate(-15deg); border: 2px solid #2563EB;'></div>
+                <div style='position: absolute; right: 25px; top: 145px; width: 20px; height: 20px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
                 
-                <!-- Arms - Down relaxed -->
-                <ellipse cx="75" cy="140" rx="15" ry="28" fill="#3B82F6" stroke="#2563EB" stroke-width="3" transform="rotate(15 75 140)"/>
-                <ellipse cx="175" cy="140" rx="15" ry="28" fill="#3B82F6" stroke="#2563EB" stroke-width="3" transform="rotate(-15 175 140)"/>
-                <!-- Hands -->
-                <circle cx="70" cy="165" r="12" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
-                <circle cx="180" cy="165" r="12" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
+                <!-- Droplet body -->
+                <div style='position: absolute; left: 50%; top: 50px; transform: translateX(-50%); width: 80px; height: 100px; background: linear-gradient(135deg, #93C5FD 0%, #60A5FA 50%, #3B82F6 100%); border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; border: 3px solid #2563EB;'>
+                    <div style='position: absolute; left: 10px; top: 15px; width: 20px; height: 30px; background: rgba(147, 197, 253, 0.6); border-radius: 50%; transform: rotate(-20deg);'></div>
+                    <div style='position: absolute; left: 18px; top: 35px; width: 8px; height: 8px; background: #1E3A8A; border-radius: 50%;'></div>
+                    <div style='position: absolute; right: 18px; top: 35px; width: 8px; height: 8px; background: #1E3A8A; border-radius: 50%;'></div>
+                    <div style='position: absolute; left: 22px; top: 58px; width: 36px; height: 12px; border: 3px solid #DC2626; border-top: none; border-radius: 0 0 50% 50%;'></div>
+                </div>
                 
-                <!-- Legs -->
-                <ellipse cx="110" cy="220" rx="12" ry="20" fill="#3B82F6" stroke="#2563EB" stroke-width="3"/>
-                <ellipse cx="140" cy="220" rx="12" ry="20" fill="#3B82F6" stroke="#2563EB" stroke-width="3"/>
-                <!-- Feet -->
-                <ellipse cx="110" cy="240" rx="18" ry="10" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
-                <ellipse cx="140" cy="240" rx="18" ry="10" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
-            </svg>
+                <div style='position: absolute; left: 55px; top: 160px; width: 20px; height: 35px; background: linear-gradient(180deg, #60A5FA, #3B82F6); border-radius: 10px; border: 2px solid #2563EB;'></div>
+                <div style='position: absolute; right: 55px; top: 160px; width: 20px; height: 35px; background: linear-gradient(180deg, #60A5FA, #3B82F6); border-radius: 10px; border: 2px solid #2563EB;'></div>
+                <div style='position: absolute; left: 45px; top: 190px; width: 30px; height: 15px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
+                <div style='position: absolute; right: 45px; top: 190px; width: 30px; height: 15px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
+            </div>
             <div style='font-size: 1.3rem; color: #000000; font-weight: bold; margin-top: 0.5rem;'>😊 Great progress!</div>
         </div>
         """
     else:
-        # Neutral/Encouraging - arms down
+        # Neutral - arms straight down
         return """
-        <div style='text-align: center; padding: 2rem 0;'>
-            <svg width="250" height="300" viewBox="0 0 250 300" xmlns="http://www.w3.org/2000/svg">
-                <!-- Water droplet body -->
-                <path d="M 125 50 Q 90 80 90 130 Q 90 180 125 200 Q 160 180 160 130 Q 160 80 125 50 Z" 
-                      fill="#60A5FA" stroke="#2563EB" stroke-width="4"/>
-                <!-- Light reflection -->
-                <ellipse cx="110" cy="90" rx="15" ry="25" fill="#93C5FD" opacity="0.6"/>
+        <div style='text-align: center; padding: 1rem 0;'>
+            <div style='position: relative; display: inline-block; width: 200px; height: 250px;'>
+                <!-- Left arm straight -->
+                <div style='position: absolute; left: 32px; top: 110px; width: 25px; height: 50px; background: linear-gradient(135deg, #60A5FA, #3B82F6); border-radius: 12px; border: 2px solid #2563EB;'></div>
+                <div style='position: absolute; left: 28px; top: 155px; width: 20px; height: 20px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
                 
-                <!-- Face - Neutral -->
-                <circle cx="110" cy="115" r="5" fill="#1E3A8A"/>
-                <circle cx="140" cy="115" r="5" fill="#1E3A8A"/>
-                <line x1="105" y1="145" x2="145" y2="145" stroke="#1E3A8A" stroke-width="3" stroke-linecap="round"/>
+                <!-- Right arm straight -->
+                <div style='position: absolute; right: 32px; top: 110px; width: 25px; height: 50px; background: linear-gradient(135deg, #60A5FA, #3B82F6); border-radius: 12px; border: 2px solid #2563EB;'></div>
+                <div style='position: absolute; right: 28px; top: 155px; width: 20px; height: 20px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
                 
-                <!-- Arms - Down straight -->
-                <ellipse cx="75" cy="145" rx="15" ry="30" fill="#3B82F6" stroke="#2563EB" stroke-width="3"/>
-                <ellipse cx="175" cy="145" rx="15" ry="30" fill="#3B82F6" stroke="#2563EB" stroke-width="3"/>
-                <!-- Hands -->
-                <circle cx="75" cy="175" r="12" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
-                <circle cx="175" cy="175" r="12" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
+                <!-- Droplet body -->
+                <div style='position: absolute; left: 50%; top: 50px; transform: translateX(-50%); width: 80px; height: 100px; background: linear-gradient(135deg, #93C5FD 0%, #60A5FA 50%, #3B82F6 100%); border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; border: 3px solid #2563EB;'>
+                    <div style='position: absolute; left: 10px; top: 15px; width: 20px; height: 30px; background: rgba(147, 197, 253, 0.6); border-radius: 50%; transform: rotate(-20deg);'></div>
+                    <div style='position: absolute; left: 18px; top: 35px; width: 8px; height: 8px; background: #1E3A8A; border-radius: 50%;'></div>
+                    <div style='position: absolute; right: 18px; top: 35px; width: 8px; height: 8px; background: #1E3A8A; border-radius: 50%;'></div>
+                    <div style='position: absolute; left: 25px; top: 58px; width: 30px; height: 3px; background: #1E3A8A; border-radius: 2px;'></div>
+                </div>
                 
-                <!-- Legs -->
-                <ellipse cx="110" cy="220" rx="12" ry="20" fill="#3B82F6" stroke="#2563EB" stroke-width="3"/>
-                <ellipse cx="140" cy="220" rx="12" ry="20" fill="#3B82F6" stroke="#2563EB" stroke-width="3"/>
-                <!-- Feet -->
-                <ellipse cx="110" cy="240" rx="18" ry="10" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
-                <ellipse cx="140" cy="240" rx="18" ry="10" fill="#2563EB" stroke="#1E40AF" stroke-width="3"/>
-            </svg>
+                <div style='position: absolute; left: 55px; top: 160px; width: 20px; height: 35px; background: linear-gradient(180deg, #60A5FA, #3B82F6); border-radius: 10px; border: 2px solid #2563EB;'></div>
+                <div style='position: absolute; right: 55px; top: 160px; width: 20px; height: 35px; background: linear-gradient(180deg, #60A5FA, #3B82F6); border-radius: 10px; border: 2px solid #2563EB;'></div>
+                <div style='position: absolute; left: 45px; top: 190px; width: 30px; height: 15px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
+                <div style='position: absolute; right: 45px; top: 190px; width: 30px; height: 15px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
+            </div>
             <div style='font-size: 1.3rem; color: #000000; font-weight: bold; margin-top: 0.5rem;'>💧 Let's get hydrated!</div>
         </div>
         """
