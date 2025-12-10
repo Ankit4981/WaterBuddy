@@ -36,10 +36,11 @@ st.markdown("""
         background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
         padding: 2rem;
         border-radius: 1.5rem;
+        border: 3px solid #000000;
         color: white;
         text-align: center;
         margin: 1.5rem 0;
-        box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     }
     .stat-number {
         font-size: 3.5rem;
@@ -55,26 +56,27 @@ st.markdown("""
         background: white;
         padding: 1.25rem;
         border-radius: 1rem;
-        border-left: 5px solid #3B82F6;
+        border: 3px solid #000000;
         margin: 1rem 0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     }
     .stButton>button {
         width: 100%;
         background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
         color: white;
         font-weight: bold;
-        border: none;
+        border: 3px solid #000000 !important;
         border-radius: 2rem;
         padding: 0.85rem;
         font-size: 1.05rem;
-        box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         transition: all 0.3s ease;
     }
     .stButton>button:hover {
         background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
-        box-shadow: 0 6px 12px rgba(59, 130, 246, 0.4);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
         transform: translateY(-2px);
+        border: 3px solid #000000 !important;
     }
     
     /* Text input styling */
@@ -82,7 +84,8 @@ st.markdown("""
         font-size: 1.1rem;
         padding: 0.75rem;
         border-radius: 0.75rem;
-        border: 2px solid #93C5FD;
+        border: 3px solid #000000 !important;
+        background: white;
     }
     
     /* Number input styling */
@@ -90,7 +93,26 @@ st.markdown("""
         font-size: 1.1rem;
         padding: 0.75rem;
         border-radius: 0.75rem;
-        border: 2px solid #93C5FD;
+        border: 3px solid #000000 !important;
+        background: white;
+    }
+    
+    /* Radio button styling */
+    .stRadio > div {
+        border: 3px solid #000000;
+        border-radius: 1rem;
+        padding: 0.5rem;
+        background: white;
+    }
+    
+    /* Content boxes */
+    .content-box {
+        background: white;
+        border: 3px solid #000000;
+        border-radius: 1.5rem;
+        padding: 2rem;
+        margin: 1rem 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 </style>
 """, unsafe_allow_html=True)
