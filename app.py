@@ -172,133 +172,46 @@ def get_droppy_message(percentage):
         return "💧 Let's stay hydrated! Small sips add up", "#38BDF8", "😐"
 
 def get_droppy_mascot(percentage):
-    """Returns visual water droplet mascot with different expressions using components"""
+    """Returns simple emoji-based mascot that works reliably"""
     if percentage >= 100:
-        # Celebrating - arms up, party mode!
+        # Celebrating
         return """
-        <div style='text-align: center; padding: 1rem 0;'>
-            <div style='position: relative; display: inline-block; width: 200px; height: 250px;'>
-                <!-- Party emojis -->
-                <span style='position: absolute; left: 10px; top: 10px; font-size: 1.5rem;'>🎉</span>
-                <span style='position: absolute; right: 10px; top: 10px; font-size: 1.5rem;'>✨</span>
-                <span style='position: absolute; left: 30px; top: 0px; font-size: 1.5rem;'>🎊</span>
-                <span style='position: absolute; right: 30px; top: 0px; font-size: 1.5rem;'>⭐</span>
-                
-                <!-- Left arm up -->
-                <div style='position: absolute; left: 20px; top: 70px; width: 30px; height: 50px; background: linear-gradient(135deg, #60A5FA, #3B82F6); border-radius: 15px; transform: rotate(-45deg); border: 2px solid #2563EB;'></div>
-                <div style='position: absolute; left: 10px; top: 55px; width: 25px; height: 25px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
-                
-                <!-- Right arm up -->
-                <div style='position: absolute; right: 20px; top: 70px; width: 30px; height: 50px; background: linear-gradient(135deg, #60A5FA, #3B82F6); border-radius: 15px; transform: rotate(45deg); border: 2px solid #2563EB;'></div>
-                <div style='position: absolute; right: 10px; top: 55px; width: 25px; height: 25px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
-                
-                <!-- Droplet body -->
-                <div style='position: absolute; left: 50%; top: 50px; transform: translateX(-50%); width: 80px; height: 100px; background: linear-gradient(135deg, #93C5FD 0%, #60A5FA 50%, #3B82F6 100%); border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; border: 3px solid #2563EB;'>
-                    <!-- Light reflection -->
-                    <div style='position: absolute; left: 10px; top: 15px; width: 20px; height: 30px; background: rgba(147, 197, 253, 0.6); border-radius: 50%; transform: rotate(-20deg);'></div>
-                    <!-- Eyes -->
-                    <div style='position: absolute; left: 15px; top: 35px; width: 12px; height: 18px; background: #1E3A8A; border-radius: 50%;'></div>
-                    <div style='position: absolute; right: 15px; top: 35px; width: 12px; height: 18px; background: #1E3A8A; border-radius: 50%;'></div>
-                    <!-- Big smile -->
-                    <div style='position: absolute; left: 15px; top: 60px; width: 50px; height: 25px; border: 3px solid #DC2626; border-top: none; border-radius: 0 0 50% 50%; background: #DC2626;'></div>
-                </div>
-                
-                <!-- Legs -->
-                <div style='position: absolute; left: 55px; top: 160px; width: 20px; height: 35px; background: linear-gradient(180deg, #60A5FA, #3B82F6); border-radius: 10px; border: 2px solid #2563EB;'></div>
-                <div style='position: absolute; right: 55px; top: 160px; width: 20px; height: 35px; background: linear-gradient(180deg, #60A5FA, #3B82F6); border-radius: 10px; border: 2px solid #2563EB;'></div>
-                
-                <!-- Feet -->
-                <div style='position: absolute; left: 45px; top: 190px; width: 30px; height: 15px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
-                <div style='position: absolute; right: 45px; top: 190px; width: 30px; height: 15px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
-            </div>
-            <div style='font-size: 1.3rem; color: #000000; font-weight: bold; margin-top: 0.5rem;'>🎉 GOAL ACHIEVED! 🎉</div>
+        <div style='text-align: center; padding: 2rem; background: #FFFFFF; border-radius: 1rem;'>
+            <div style='font-size: 6rem; margin-bottom: 1rem;'>💧</div>
+            <div style='font-size: 2rem;'>🎉 ✨ 🎊</div>
+            <div style='font-size: 3rem; margin: 1rem 0;'>😄</div>
+            <div style='font-size: 2rem;'>💪 💪</div>
+            <div style='font-size: 1.5rem; color: #000000; font-weight: bold; margin-top: 1rem;'>🎉 GOAL ACHIEVED! 🎉</div>
         </div>
         """
     elif percentage >= 75:
-        # Motivated/Cheering - flexing arms
+        # Motivated
         return """
-        <div style='text-align: center; padding: 1rem 0;'>
-            <div style='position: relative; display: inline-block; width: 200px; height: 250px;'>
-                <!-- Left arm flexing -->
-                <div style='position: absolute; left: 25px; top: 80px; width: 30px; height: 45px; background: linear-gradient(135deg, #60A5FA, #3B82F6); border-radius: 15px; transform: rotate(-30deg); border: 2px solid #2563EB;'></div>
-                <div style='position: absolute; left: 15px; top: 65px; width: 25px; height: 25px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
-                
-                <!-- Right arm flexing -->
-                <div style='position: absolute; right: 25px; top: 80px; width: 30px; height: 45px; background: linear-gradient(135deg, #60A5FA, #3B82F6); border-radius: 15px; transform: rotate(30deg); border: 2px solid #2563EB;'></div>
-                <div style='position: absolute; right: 15px; top: 65px; width: 25px; height: 25px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
-                
-                <!-- Droplet body -->
-                <div style='position: absolute; left: 50%; top: 50px; transform: translateX(-50%); width: 80px; height: 100px; background: linear-gradient(135deg, #93C5FD 0%, #60A5FA 50%, #3B82F6 100%); border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; border: 3px solid #2563EB;'>
-                    <div style='position: absolute; left: 10px; top: 15px; width: 20px; height: 30px; background: rgba(147, 197, 253, 0.6); border-radius: 50%; transform: rotate(-20deg);'></div>
-                    <div style='position: absolute; left: 18px; top: 35px; width: 10px; height: 10px; background: #1E3A8A; border-radius: 50%;'></div>
-                    <div style='position: absolute; right: 18px; top: 35px; width: 10px; height: 10px; background: #1E3A8A; border-radius: 50%;'></div>
-                    <div style='position: absolute; left: 20px; top: 60px; width: 40px; height: 15px; border: 3px solid #DC2626; border-top: none; border-radius: 0 0 50% 50%;'></div>
-                </div>
-                
-                <div style='position: absolute; left: 55px; top: 160px; width: 20px; height: 35px; background: linear-gradient(180deg, #60A5FA, #3B82F6); border-radius: 10px; border: 2px solid #2563EB;'></div>
-                <div style='position: absolute; right: 55px; top: 160px; width: 20px; height: 35px; background: linear-gradient(180deg, #60A5FA, #3B82F6); border-radius: 10px; border: 2px solid #2563EB;'></div>
-                <div style='position: absolute; left: 45px; top: 190px; width: 30px; height: 15px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
-                <div style='position: absolute; right: 45px; top: 190px; width: 30px; height: 15px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
-            </div>
-            <div style='font-size: 1.3rem; color: #000000; font-weight: bold; margin-top: 0.5rem;'>💪 Keep going! Almost there!</div>
+        <div style='text-align: center; padding: 2rem; background: #FFFFFF; border-radius: 1rem;'>
+            <div style='font-size: 6rem; margin-bottom: 1rem;'>💧</div>
+            <div style='font-size: 3rem; margin: 1rem 0;'>😊</div>
+            <div style='font-size: 2rem;'>💪 💪</div>
+            <div style='font-size: 1.5rem; color: #000000; font-weight: bold; margin-top: 1rem;'>💪 Keep going! Almost there!</div>
         </div>
         """
     elif percentage >= 50:
-        # Happy/Smiling - relaxed arms
+        # Happy
         return """
-        <div style='text-align: center; padding: 1rem 0;'>
-            <div style='position: relative; display: inline-block; width: 200px; height: 250px;'>
-                <!-- Left arm down -->
-                <div style='position: absolute; left: 30px; top: 105px; width: 25px; height: 45px; background: linear-gradient(135deg, #60A5FA, #3B82F6); border-radius: 12px; transform: rotate(15deg); border: 2px solid #2563EB;'></div>
-                <div style='position: absolute; left: 25px; top: 145px; width: 20px; height: 20px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
-                
-                <!-- Right arm down -->
-                <div style='position: absolute; right: 30px; top: 105px; width: 25px; height: 45px; background: linear-gradient(135deg, #60A5FA, #3B82F6); border-radius: 12px; transform: rotate(-15deg); border: 2px solid #2563EB;'></div>
-                <div style='position: absolute; right: 25px; top: 145px; width: 20px; height: 20px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
-                
-                <!-- Droplet body -->
-                <div style='position: absolute; left: 50%; top: 50px; transform: translateX(-50%); width: 80px; height: 100px; background: linear-gradient(135deg, #93C5FD 0%, #60A5FA 50%, #3B82F6 100%); border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; border: 3px solid #2563EB;'>
-                    <div style='position: absolute; left: 10px; top: 15px; width: 20px; height: 30px; background: rgba(147, 197, 253, 0.6); border-radius: 50%; transform: rotate(-20deg);'></div>
-                    <div style='position: absolute; left: 18px; top: 35px; width: 8px; height: 8px; background: #1E3A8A; border-radius: 50%;'></div>
-                    <div style='position: absolute; right: 18px; top: 35px; width: 8px; height: 8px; background: #1E3A8A; border-radius: 50%;'></div>
-                    <div style='position: absolute; left: 22px; top: 58px; width: 36px; height: 12px; border: 3px solid #DC2626; border-top: none; border-radius: 0 0 50% 50%;'></div>
-                </div>
-                
-                <div style='position: absolute; left: 55px; top: 160px; width: 20px; height: 35px; background: linear-gradient(180deg, #60A5FA, #3B82F6); border-radius: 10px; border: 2px solid #2563EB;'></div>
-                <div style='position: absolute; right: 55px; top: 160px; width: 20px; height: 35px; background: linear-gradient(180deg, #60A5FA, #3B82F6); border-radius: 10px; border: 2px solid #2563EB;'></div>
-                <div style='position: absolute; left: 45px; top: 190px; width: 30px; height: 15px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
-                <div style='position: absolute; right: 45px; top: 190px; width: 30px; height: 15px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
-            </div>
-            <div style='font-size: 1.3rem; color: #000000; font-weight: bold; margin-top: 0.5rem;'>😊 Great progress!</div>
+        <div style='text-align: center; padding: 2rem; background: #FFFFFF; border-radius: 1rem;'>
+            <div style='font-size: 6rem; margin-bottom: 1rem;'>💧</div>
+            <div style='font-size: 3rem; margin: 1rem 0;'>😊</div>
+            <div style='font-size: 2rem;'>👋 👋</div>
+            <div style='font-size: 1.5rem; color: #000000; font-weight: bold; margin-top: 1rem;'>😊 Great progress!</div>
         </div>
         """
     else:
-        # Neutral - arms straight down
+        # Neutral
         return """
-        <div style='text-align: center; padding: 1rem 0;'>
-            <div style='position: relative; display: inline-block; width: 200px; height: 250px;'>
-                <!-- Left arm straight -->
-                <div style='position: absolute; left: 32px; top: 110px; width: 25px; height: 50px; background: linear-gradient(135deg, #60A5FA, #3B82F6); border-radius: 12px; border: 2px solid #2563EB;'></div>
-                <div style='position: absolute; left: 28px; top: 155px; width: 20px; height: 20px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
-                
-                <!-- Right arm straight -->
-                <div style='position: absolute; right: 32px; top: 110px; width: 25px; height: 50px; background: linear-gradient(135deg, #60A5FA, #3B82F6); border-radius: 12px; border: 2px solid #2563EB;'></div>
-                <div style='position: absolute; right: 28px; top: 155px; width: 20px; height: 20px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
-                
-                <!-- Droplet body -->
-                <div style='position: absolute; left: 50%; top: 50px; transform: translateX(-50%); width: 80px; height: 100px; background: linear-gradient(135deg, #93C5FD 0%, #60A5FA 50%, #3B82F6 100%); border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; border: 3px solid #2563EB;'>
-                    <div style='position: absolute; left: 10px; top: 15px; width: 20px; height: 30px; background: rgba(147, 197, 253, 0.6); border-radius: 50%; transform: rotate(-20deg);'></div>
-                    <div style='position: absolute; left: 18px; top: 35px; width: 8px; height: 8px; background: #1E3A8A; border-radius: 50%;'></div>
-                    <div style='position: absolute; right: 18px; top: 35px; width: 8px; height: 8px; background: #1E3A8A; border-radius: 50%;'></div>
-                    <div style='position: absolute; left: 25px; top: 58px; width: 30px; height: 3px; background: #1E3A8A; border-radius: 2px;'></div>
-                </div>
-                
-                <div style='position: absolute; left: 55px; top: 160px; width: 20px; height: 35px; background: linear-gradient(180deg, #60A5FA, #3B82F6); border-radius: 10px; border: 2px solid #2563EB;'></div>
-                <div style='position: absolute; right: 55px; top: 160px; width: 20px; height: 35px; background: linear-gradient(180deg, #60A5FA, #3B82F6); border-radius: 10px; border: 2px solid #2563EB;'></div>
-                <div style='position: absolute; left: 45px; top: 190px; width: 30px; height: 15px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
-                <div style='position: absolute; right: 45px; top: 190px; width: 30px; height: 15px; background: #2563EB; border-radius: 50%; border: 2px solid #1E40AF;'></div>
-            </div>
-            <div style='font-size: 1.3rem; color: #000000; font-weight: bold; margin-top: 0.5rem;'>💧 Let's get hydrated!</div>
+        <div style='text-align: center; padding: 2rem; background: #FFFFFF; border-radius: 1rem;'>
+            <div style='font-size: 6rem; margin-bottom: 1rem;'>💧</div>
+            <div style='font-size: 3rem; margin: 1rem 0;'>😐</div>
+            <div style='font-size: 2rem;'>🤚 🤚</div>
+            <div style='font-size: 1.5rem; color: #000000; font-weight: bold; margin-top: 1rem;'>💧 Let's get hydrated!</div>
         </div>
         """
 
@@ -498,8 +411,10 @@ elif st.session_state.screen == 'tracker':
     # Progress Bar
     st.progress(percentage / 100)
     
-    # Droppy Mascot
+    # Droppy Mascot - with proper container
+    st.markdown("<div style='background: #FFFFFF; border: 3px solid #000000; border-radius: 1.5rem; padding: 1rem; margin: 1rem 0;'>", unsafe_allow_html=True)
     st.markdown(mascot, unsafe_allow_html=True)
+    st.markdown("</div>", unsafe_allow_html=True)
     
     # Motivational Message
     st.markdown(f"""
