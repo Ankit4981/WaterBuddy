@@ -12,16 +12,21 @@ st.set_page_config(
 # Custom CSS for styling
 st.markdown("""
 <style>
+    /* Main app background */
+    .stApp {
+        background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 50%, #7DD3FC 100%);
+    }
+    
     .main-header {
         text-align: center;
-        color: #0EA5E9;
+        color: #0369A1;
         font-size: 2.5rem;
         font-weight: bold;
         margin-bottom: 1rem;
     }
     .tagline {
         text-align: center;
-        color: #64748B;
+        color: #0C4A6E;
         font-size: 1rem;
         margin-bottom: 2rem;
     }
@@ -32,6 +37,7 @@ st.markdown("""
         color: white;
         text-align: center;
         margin: 1rem 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     .stat-number {
         font-size: 3rem;
@@ -43,31 +49,44 @@ st.markdown("""
         opacity: 0.9;
     }
     .message-box {
-        background: #F0F9FF;
+        background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
         padding: 1rem;
-        border-radius: 0.5rem;
+        border-radius: 0.75rem;
         border-left: 4px solid #0EA5E9;
         margin: 1rem 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     }
     .age-card {
         background: white;
         padding: 1rem;
         border-radius: 0.5rem;
-        border: 2px solid #E2E8F0;
+        border: 2px solid #BAE6FD;
         margin: 0.5rem 0;
     }
     .stButton>button {
         width: 100%;
-        background: #8BD8FF;
+        background: linear-gradient(135deg, #8BD8FF 0%, #38BDF8 100%);
         color: white;
         font-weight: bold;
         border: none;
         border-radius: 2rem;
         padding: 0.75rem;
         font-size: 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
     }
     .stButton>button:hover {
-        background: #0EA5E9;
+        background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        transform: translateY(-1px);
+    }
+    
+    /* Card backgrounds */
+    div[data-testid="stVerticalBlock"] > div {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        border-radius: 1rem;
+        padding: 1rem;
     }
 </style>
 """, unsafe_allow_html=True)
