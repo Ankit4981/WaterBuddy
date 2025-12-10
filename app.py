@@ -166,63 +166,47 @@ def get_droppy_message(percentage):
         return "💧 Let's stay hydrated! Small sips add up", "#38BDF8", "😐"
 
 def get_droppy_mascot(percentage):
-    """Returns ASCII art water droplet mascot with different expressions"""
+    """Returns visual water droplet mascot with different expressions"""
     if percentage >= 100:
-        # Happy/Celebrating
+        # Celebrating - like celebrate.png
         return """
-        <div style='text-align: center; font-family: monospace; color: #3B82F6; font-size: 1rem; line-height: 1.2;'>
-            <pre style='display: inline-block; text-align: left;'>
-    ⭐ ✨ ⭐
-     ╱◕ ◕╲
-    │  ▽  │
-    │ ╰─╯ │
-     ╲   ╱
-      ╰─╯
-   🎉 💧 🎉
-            </pre>
+        <div style='text-align: center; padding: 2rem 0;'>
+            <div style='font-size: 8rem; margin-bottom: 0.5rem; animation: bounce 0.5s infinite alternate;'>💧</div>
+            <div style='font-size: 2rem;'>🎉 ✨ 🎊</div>
+            <div style='font-size: 3rem; margin-top: 0.5rem;'>💪 😄 💪</div>
+            <style>
+                @keyframes bounce {
+                    from { transform: translateY(0px); }
+                    to { transform: translateY(-20px); }
+                }
+            </style>
         </div>
         """
     elif percentage >= 75:
-        # Motivated/Pumped
+        # Motivated/Cheering - like cheer.png
         return """
-        <div style='text-align: center; font-family: monospace; color: #3B82F6; font-size: 1rem; line-height: 1.2;'>
-            <pre style='display: inline-block; text-align: left;'>
-      💪    
-     ╱◕ ◕╲
-    │  ◡  │
-    │     │
-     ╲   ╱
-      ╰─╯
-      💧
-            </pre>
+        <div style='text-align: center; padding: 2rem 0;'>
+            <div style='font-size: 8rem; margin-bottom: 0.5rem;'>💧</div>
+            <div style='font-size: 3rem;'>💪 😊 💪</div>
+            <div style='font-size: 1.5rem; color: #3B82F6; font-weight: bold; margin-top: 0.5rem;'>Almost there!</div>
         </div>
         """
     elif percentage >= 50:
-        # Happy/Smiling
+        # Happy/Smiling - like smile.png
         return """
-        <div style='text-align: center; font-family: monospace; color: #3B82F6; font-size: 1rem; line-height: 1.2;'>
-            <pre style='display: inline-block; text-align: left;'>
-     ╱◕ ◕╲
-    │  ◡  │
-    │     │
-     ╲   ╱
-      ╰─╯
-      💧
-            </pre>
+        <div style='text-align: center; padding: 2rem 0;'>
+            <div style='font-size: 8rem; margin-bottom: 0.5rem;'>💧</div>
+            <div style='font-size: 3rem;'>😊</div>
+            <div style='font-size: 1.5rem; color: #3B82F6; font-weight: bold; margin-top: 0.5rem;'>Good job!</div>
         </div>
         """
     else:
-        # Neutral/Encouraging
+        # Neutral/Encouraging - like neutral.png
         return """
-        <div style='text-align: center; font-family: monospace; color: #3B82F6; font-size: 1rem; line-height: 1.2;'>
-            <pre style='display: inline-block; text-align: left;'>
-     ╱• •╲
-    │  ─  │
-    │     │
-     ╲   ╱
-      ╰─╯
-      💧
-            </pre>
+        <div style='text-align: center; padding: 2rem 0;'>
+            <div style='font-size: 8rem; margin-bottom: 0.5rem;'>💧</div>
+            <div style='font-size: 3rem;'>😐</div>
+            <div style='font-size: 1.5rem; color: #3B82F6; font-weight: bold; margin-top: 0.5rem;'>Let's go!</div>
         </div>
         """
 
